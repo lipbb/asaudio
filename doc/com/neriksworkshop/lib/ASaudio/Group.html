@@ -1,0 +1,1736 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="Group,com.neriksworkshop.lib.ASaudio.Group,_children,_facadePan,_facadeVolume,_fadeAtEnd,_loop,_muted,_name,_numChildren,_panMultiplier,_paused,_refFacadePan,_refFacadeVolume,_uid,_volumeMultiplier,children,fadeAtEnd,name,numChildren,pan,peak,peakLeft,peakRight,uid,volume,volumeUnits,loop,panMultiplier,volumeMultiplier,add,addChild,addFrom,addTracksFromM3U,addTracksFromUrls,addTracksFromXSPF,center,contains,cookieRetrieve,cookieWrite,crossfade,getChildById,getChildByName,getM3U,getXSPF,left,loadM3U,loadXSPF,mute,panTo,pause,remove,removeChild,resume,right,setAudio,setPan,setVolume,solo,start,stop,toggleMute,togglePause,unmute,unsolo,volumeTo" name="keywords">
+<title>com.neriksworkshop.lib.ASaudio.Group</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Group - API Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ASaudio</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?com/neriksworkshop/lib/ASaudio/Group.html&amp;com/neriksworkshop/lib/ASaudio/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Group</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Group"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.neriksworkshop.lib.ASaudio</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Group</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Group <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Implements</td><td><a href="core/IAudioItem.html">IAudioItem</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="../ASaudio/Playlist.html">Playlist</a></td>
+</tr>
+</table>
+<p></p>
+ A Group object is a container for Tracks or other Groups (or Playlists). It allows you to control a bunch of audio items globally, using the same methods and properties
+ as the Track object (as both implements IAudioItem).
+ 
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#children">children</a> : Array<div class="summaryTableDescription">[read-only]
+   Returns an array that contains all of the group/list's children.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fadeAtEnd">fadeAtEnd</a> : Boolean<div class="summaryTableDescription">
+   Fades out volume at the end of each group's track, using time set by 
+   <code>AudioParams.DURATION_TRANSITIONS</code>
+   </div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#loop">loop</a> : Boolean<div class="summaryTableDescription">[write-only]
+   Determines whether the group's children should repeat themselves or not.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#name">name</a> : String<div class="summaryTableDescription">
+   
+   A name to identify the track or the group.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#numChildren">numChildren</a> : int<div class="summaryTableDescription">[read-only]
+   Returns the number of children of this group/list.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#pan">pan</a> : Number<div class="summaryTableDescription">
+   
+   The left-to-right panning of the audio item, ranging from -1 (full pan 
+   left) to 1 (full pan right).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#panMultiplier">panMultiplier</a> : Number<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peak">peak</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current average amplitude (volume) of the right and left channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peakLeft">peakLeft</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current amplitude (volume) of the left channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peakRight">peakRight</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current amplitude (volume) of the right channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#uid">uid</a> : uint<div class="summaryTableDescription">[read-only]
+   
+   An unique and auto generated identifier for the audio element.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#volume">volume</a> : Number<div class="summaryTableDescription">
+   
+   This item's own volume, ranging from 0 (silent) to 1 (full 
+   volume).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#volumeMultiplier">volumeMultiplier</a> : Number<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#volumeUnits">volumeUnits</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   [TBD, DO NOT USE] return an approximation of the amplitude in Volume Units (VU) from 0 to 1.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<table id="summaryTableProtectedProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_children">_children</a> : Array<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_facadePan">_facadePan</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_facadeVolume">_facadeVolume</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_fadeAtEnd">_fadeAtEnd</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_loop">_loop</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_muted">_muted</a> : Boolean = false<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_name">_name</a> : String<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_numChildren">_numChildren</a> : int<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_panMultiplier">_panMultiplier</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_paused">_paused</a> : Boolean = true<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_refFacadePan">_refFacadePan</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_refFacadeVolume">_refFacadeVolume</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_uid">_uid</a> : int<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_volumeMultiplier">_volumeMultiplier</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Group()">Group</a>(_items:* = null, _name:String = null)</div>
+<div class="summaryTableDescription">
+   Creates a new Group object.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addChild()">addChild</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child audio item instance to this group.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addFrom()">addFrom</a>(_items:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addTracksFromM3U()">addTracksFromM3U</a>(data:String):void</div>
+<div class="summaryTableDescription">
+   Load sounds, creates and add AudioTracks to the group, using an M3U formatted playlist.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addTracksFromUrls()">addTracksFromUrls</a>(urls:Array):void</div>
+<div class="summaryTableDescription">
+   Loads sounds urls provided, creates and adds corresponding AudioTracks to the group/list's
+   child list.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addTracksFromXSPF()">addTracksFromXSPF</a>(data:XML):void</div>
+<div class="summaryTableDescription">
+   Load sounds, creates and add AudioTracks to the group, using an XSPF formatted playlist.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#center()">center</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to 0 (balanced center between right and left).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#contains()">contains</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Determines whether the specified audio item is a child of this group/list.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cookieRetrieve()">cookieRetrieve</a>(cookieId:String):void</div>
+<div class="summaryTableDescription">
+   
+   Retrieves a flash cookie saved by <code>cookieWrite</code> and applies its parameters to the current audio item.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cookieWrite()">cookieWrite</a>(cookieId:String):Boolean</div>
+<div class="summaryTableDescription">
+   
+   Writes audio item parameters to a flash cookie (SharedObject).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#crossfade()">crossfade</a>(targetAudio:<a href="core/IAudioItem.html">IAudioItem</a>, time:Number):void</div>
+<div class="summaryTableDescription">
+   
+   Does a crossfade between this audio item and the target one.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getChildById()">getChildById</a>(_uid:int):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child audio item that exists with the specified auto-generated unique identifier.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getChildByName()">getChildByName</a>(_name:String):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child audio item that exists with the specified name.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getM3U()">getM3U</a>():String</div>
+<div class="summaryTableDescription">
+   Generates an M3U playlist from child audio items.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getXSPF()">getXSPF</a>():XML</div>
+<div class="summaryTableDescription">
+   Generates an XSPF playlist from child audio items.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#left()">left</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to -1 (full pan left).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadM3U()">loadM3U</a>(url:String):void</div>
+<div class="summaryTableDescription">
+   Load an M3U formatted playlist, and calls the <code>addTracksFromM3U</code> method when loaded.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadXSPF()">loadXSPF</a>(url:String):void</div>
+<div class="summaryTableDescription">
+   Load an XSPF formatted playlist, and calls the <code>addTracksFromXSPF</code> method when loaded.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#mute()">mute</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Mutes item's sound without stopping playback.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#panTo()">panTo</a>(time:Number, endPan:Number, startPan:Number, keepChanges:Boolean = true):void</div>
+<div class="summaryTableDescription">
+   
+   Fades audio item's pan progressively.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#pause()">pause</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Pauses sound(s).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeChild()">removeChild</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Removes the specified child audio item from the child list of this group.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#resume()">resume</a>(_fadeIn:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Resumes sound(s) from where it was paused.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#right()">right</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to 1 (full pan right).</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setPan()">setPan</a>(value:Number):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setVolume()">setVolume</a>(value:Number):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#solo()">solo</a>():void</div>
+<div class="summaryTableDescription">
+   
+   [TBD, DO NOT USE] Mutes all other sounds.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>(_fadeIn:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Load and plays group's children.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#stop()">stop</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Stops the sound(s) and cleans Timers and Sound Channels.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toggleMute()">toggleMute</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Mutes/unmutes sound(s) depending on sound(s) current state.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#togglePause()">togglePause</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unmute()">unmute</a>(_fadeIn:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Restores item's initial volume.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unsolo()">unsolo</a>():void</div>
+<div class="summaryTableDescription">
+   
+   [TBD, DO NOT USE] Unmutes all other sounds.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#volumeTo()">volumeTo</a>(time:Number, endVolume:Number, startVolume:Number, keepChanges:Boolean = true, callback:Function = null):void</div>
+<div class="summaryTableDescription">
+   
+   Fades audio item's volume progressively.</div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#add()">add</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#remove()">remove</a>(index:int):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setAudio()">setAudio</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Group</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="_children"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_children</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _children:Array</code>
+</div>
+<a name="children"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">children</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>children:Array</code>&nbsp;&nbsp;[read-only]<p>
+   Returns an array that contains all of the group/list's children.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get children():Array</code>
+<br>
+</div>
+<a name="_facadePan"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_facadePan</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _facadePan:Number = 0</code>
+</div>
+<a name="_facadeVolume"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_facadeVolume</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _facadeVolume:Number = 1</code>
+</div>
+<a name="_fadeAtEnd"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_fadeAtEnd</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _fadeAtEnd:Boolean</code>
+</div>
+<a name="fadeAtEnd"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fadeAtEnd</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fadeAtEnd:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   Fades out volume at the end of each group's track, using time set by 
+   <code>AudioParams.DURATION_TRANSITIONS</code>
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fadeAtEnd():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fadeAtEnd(value:Boolean):void</code>
+<br>
+</div>
+<a name="_loop"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_loop</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _loop:Boolean</code>
+</div>
+<a name="loop"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loop</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>loop:Boolean</code>&nbsp;&nbsp;[write-only]<p>
+   Determines whether the group's children should repeat themselves or not.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set loop(value:Boolean):void</code>
+<br>
+</div>
+<a name="_muted"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_muted</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _muted:Boolean = false</code>
+</div>
+<a name="_name"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_name</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _name:String</code>
+</div>
+<a name="name"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">name</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>name:String</code>&nbsp;&nbsp;[read-write]<p>
+   
+   A name to identify the track or the group. Useful when using
+   AudioGroup's method <code>getItemByName()</code>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get name():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set name(value:String):void</code>
+<br>
+</div>
+<a name="_numChildren"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_numChildren</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _numChildren:int</code>
+</div>
+<a name="numChildren"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">numChildren</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>numChildren:int</code>&nbsp;&nbsp;[read-only]<p>
+   Returns the number of children of this group/list. 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get numChildren():int</code>
+<br>
+</div>
+<a name="pan"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pan</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>pan:Number</code>&nbsp;&nbsp;[read-write]<p>
+   
+   The left-to-right panning of the audio item, ranging from -1 (full pan 
+   left) to 1 (full pan right). A value of 0 represents no panning 
+   (balanced center between right and left). 
+   This value can be different from the "real" pan if the parent's 
+   item pan is different from 0.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get pan():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set pan(value:Number):void</code>
+<br>
+</div>
+<a name="_panMultiplier"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_panMultiplier</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _panMultiplier:Number = 0</code>
+</div>
+<a name="panMultiplier"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">panMultiplier</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>panMultiplier:Number</code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get panMultiplier():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set panMultiplier(value:Number):void</code>
+<br>
+</div>
+<a name="_paused"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_paused</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _paused:Boolean = true</code>
+</div>
+<a name="peak"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peak</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peak:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current average amplitude (volume) of the right and left channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peak():Number</code>
+<br>
+</div>
+<a name="peakLeft"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peakLeft</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peakLeft:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current amplitude (volume) of the left channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peakLeft():Number</code>
+<br>
+</div>
+<a name="peakRight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peakRight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peakRight:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current amplitude (volume) of the right channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peakRight():Number</code>
+<br>
+</div>
+<a name="_refFacadePan"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_refFacadePan</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _refFacadePan:Number = 0</code>
+</div>
+<a name="_refFacadeVolume"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_refFacadeVolume</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _refFacadeVolume:Number = 1</code>
+</div>
+<a name="_uid"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_uid</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _uid:int</code>
+</div>
+<a name="uid"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">uid</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>uid:uint</code>&nbsp;&nbsp;[read-only]<p>
+   
+   An unique and auto generated identifier for the audio element. Can
+   be used with AudioGroup's <code>getItemById()</code>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get uid():uint</code>
+<br>
+</div>
+<a name="volume"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">volume</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>volume:Number</code>&nbsp;&nbsp;[read-write]<p>
+   
+   This item's own volume, ranging from 0 (silent) to 1 (full 
+   volume). Can be different from the "real" volume if the parent's 
+   item volume is different from 1.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get volume():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set volume(value:Number):void</code>
+<br>
+</div>
+<a name="_volumeMultiplier"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_volumeMultiplier</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _volumeMultiplier:Number = 1</code>
+</div>
+<a name="volumeMultiplier"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">volumeMultiplier</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>volumeMultiplier:Number</code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get volumeMultiplier():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set volumeMultiplier(value:Number):void</code>
+<br>
+</div>
+<a name="volumeUnits"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">volumeUnits</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>volumeUnits:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   [TBD, DO NOT USE] return an approximation of the amplitude in Volume Units (VU) from 0 to 1. Whereas <code>peak()</peak> gives
+   instantaneous amplitude, VU <i>is intentionally a "slow" measurement, averaging out peaks and troughs of short duration to reflect 
+   the perceived loudness of the material</i> <a href="http://en.wikipedia.org/wiki/Volume_unit">as explained on Wikipedia</a>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get volumeUnits():Number</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Group()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Group</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Group(_items:* = null, _name:String = null)</code><p>
+   Creates a new Group object.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_items</span>:*</code> (default = <code>null</code>)<code></code> &mdash; an object containing children you want to add to the group :
+      <ul>
+       <li>If you provide a <strong>single Track, Group or Playlist object</strong>, 
+        this object is added as the single child of the group. Use
+        <code>addChild</code> to add other children the same way later.</li>
+       <li>If you provide an <strong>Array containing Track, Group or Playlist 
+        objects</strong>, these objects are added to the group. Use
+        <code>addChild</code> to add each other child individually later.</li>
+       <li>If you provide a <strong>string containing the url of a playlist file</strong>,
+        the playlist is loaded
+        and children are generated from this playlist. The playlist must have an 
+        xspf or xml extension for the XSPF format, or a m3u extension for the
+        M3U format. Use <code>loadXSPF</code> and <code>loadM3U</code> to add tracks
+        the same way later.</li>
+       <li>If you provide an <code>XML object</code>, the latter is interpreted as raw 
+        XSPF data, and children are generated from the playlist's items. Use 
+        <code>addTracksFromXSPF</code> to add tracks the same way later.</li>
+       <li>If you provide an <strong>Array containing strings</strong>, each string is
+        interpreted as a track url, and children are generated from these urls. Use 
+        <code>addTracksFromUrls</code> to add tracks the same way later.</li>
+      </ul>
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_name</span>:String</code> (default = <code>null</code>)<code></code> &mdash; provide a name if you want to use the Group's method getItemByName(). If you don't provide a name,
+   the name will be created from the auto generated uid.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..addChild<br>Group..loadXSPF<br>Group..loadM3U<br>Group..addTracksFromXSPF<br>Group..addTracksFromM3U<br>Group..addTracksFromUrls</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="add()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">add</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function add(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code> (default = <code>-1</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="addChild()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addChild</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addChild(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Adds a child audio item instance to this group.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash;  The audio item to add as a child of this group.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                        The audio item that you pass in the child parameter. 
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="addFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addFrom(_items:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_items</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="addTracksFromM3U()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addTracksFromM3U</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addTracksFromM3U(data:String):void</code><p>
+   Load sounds, creates and add AudioTracks to the group, using an M3U formatted playlist. This 
+   method uses raw text data already loaded. If you want to load the .m3u file from within the Group/
+   AudioList class, you can use the <code>loadM3U</code> method instead.
+   M3U files are plain text playlists containing a file url in each line. <a href="http://en.wikipedia.org/wiki/M3U">Learn more about XSPF</a>.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:String</code> &mdash; A string containing M3U data.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..loadM3U</div>
+</div>
+<a name="addTracksFromUrls()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addTracksFromUrls</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addTracksFromUrls(urls:Array):void</code><p>
+   Loads sounds urls provided, creates and adds corresponding AudioTracks to the group/list's
+   child list.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">urls</span>:Array</code> &mdash; An array of urls to load.
+   </td>
+</tr>
+</table>
+</div>
+<a name="addTracksFromXSPF()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addTracksFromXSPF</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addTracksFromXSPF(data:XML):void</code><p>
+   Load sounds, creates and add AudioTracks to the group, using an XSPF formatted playlist. This 
+   method uses raw XSPF (XML) data already loaded. If you want to load the XSPF file from within the Group/
+   AudioList class, you can use the <code>loadXSPF</code> method instead.
+   XSPF is a simple XML dialect useful for defining playlists. <a href="http://www.xspf.org/">Learn more about XSPF</a>.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:XML</code> &mdash; An XML object containing XSPF data.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..loadXSPF</div>
+</div>
+<a name="center()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">center</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function center(_fade:Boolean = false):void</code><p>
+   
+   Sets pan to 0 (balanced center between right and left).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fade  Fade pan to center, using time set by <code>AudioAPI.DURATION_PAN_FADE</code>.  
+   </td>
+</tr>
+</table>
+</div>
+<a name="contains()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contains</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function contains(item:<a href="core/IAudioItem.html">IAudioItem</a>):Boolean</code><p>
+   Determines whether the specified audio item is a child of this group/list.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; The child item to test.  
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="cookieRetrieve()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cookieRetrieve</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cookieRetrieve(cookieId:String):void</code><p>
+   
+   Retrieves a flash cookie saved by <code>cookieWrite</code> and applies its parameters to the current audio item. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cookieId</span>:String</code> &mdash;  the id of the previously saved cookie
+   </td>
+</tr>
+</table>
+</div>
+<a name="cookieWrite()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cookieWrite</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cookieWrite(cookieId:String):Boolean</code><p>
+   
+   Writes audio item parameters to a flash cookie (SharedObject). This can be useful when using a music player accross different pages.
+   Parameters saved : 
+   <ul>
+   <li><code>volume</code></li>
+   <li><code>pan</code></li>
+   <li><code>position</code> / <code>positionMs</code> (only for Tracks and Playlists). You must then use the <code>start()</code> with <code>
+    _useStartTimeFromCookie</code> set to true.</li>
+   <li><code>currentTrackIndex</code> (only for Playlists)</li>
+   </ul>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cookieId</span>:String</code> &mdash; you must provide an id to retrieve the cookie later, using the <code>cookieGet</code> method.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; a boolean value indicating if the creation of the cookie has been succesful or not.
+   </td>
+</tr>
+</table>
+</div>
+<a name="crossfade()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">crossfade</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function crossfade(targetAudio:<a href="core/IAudioItem.html">IAudioItem</a>, time:Number):void</code><p>
+   
+   Does a crossfade between this audio item and the target one. It fades out this
+   audio item and fades in the target one.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">targetAudio</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash;  The target audio item.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">time</span>:Number</code> &mdash;     Transition time. 
+   </td>
+</tr>
+</table>
+</div>
+<a name="getChildById()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getChildById</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getChildById(_uid:int):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Returns the child audio item that exists with the specified auto-generated unique identifier.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_uid</span>:int</code> &mdash; The uid of the child to return.  
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                        The child audio item with the specified uid.
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="getChildByName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getChildByName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getChildByName(_name:String):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Returns the child audio item that exists with the specified name. If more that one child 
+   has the specified name, the method returns the first object in the child list. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_name</span>:String</code> &mdash;  The name of the child to return.  
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                         The child audio item with the specified name.
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="getM3U()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getM3U</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getM3U():String</code><p>
+   Generates an M3U playlist from child audio items. 
+   M3U files are plain text playlists containing a file url in each line. <a href="http://en.wikipedia.org/wiki/M3U">Learn more about XSPF</a>.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; a string that can be used as a M3U playlist
+   </td>
+</tr>
+</table>
+</div>
+<a name="getXSPF()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getXSPF</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getXSPF():XML</code><p>
+   Generates an XSPF playlist from child audio items. 
+   XSPF is a simple XML dialect useful for defining playlists. <a href="http://www.xspf.org/">Learn more about XSPF</a>.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>XML</code> &mdash; an XML object that can be used as a XSPF playlist
+   </td>
+</tr>
+</table>
+</div>
+<a name="left()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">left</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function left(_fade:Boolean = false):void</code><p>
+   
+   Sets pan to -1 (full pan left).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fade  Fade pan to left, using time set by <code>AudioAPI.DURATION_PAN_FADE</code>.  
+   </td>
+</tr>
+</table>
+</div>
+<a name="loadM3U()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadM3U</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadM3U(url:String):void</code><p>
+   Load an M3U formatted playlist, and calls the <code>addTracksFromM3U</code> method when loaded.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash; The url of the M3U file.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..addTracksFromM3U</div>
+</div>
+<a name="loadXSPF()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadXSPF</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadXSPF(url:String):void</code><p>
+   Load an XSPF formatted playlist, and calls the <code>addTracksFromXSPF</code> method when loaded.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash; The url of the XSPF file.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..addTracksFromXSPF</div>
+</div>
+<a name="mute()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">mute</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function mute(_fadeOut:Boolean = false):void</code><p>
+   
+   Mutes item's sound without stopping playback. Original volume 
+   can be retrieved using the <code>unmute()</code> method.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeOut</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeOut  Fades volume out, using time set by <code>AudioAPI.DURATION_MUTE_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="panTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">panTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function panTo(time:Number, endPan:Number, startPan:Number, keepChanges:Boolean = true):void</code><p>
+   
+   Fades audio item's pan progressively.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">time</span>:Number</code> &mdash;   Transition time. Mixer.DURATION_DEFAULT by default
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">endPan</span>:Number</code> &mdash;     The target pan . By default, the current pan of the audio item is used.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">startPan</span>:Number</code> &mdash;    The pan at which the fade should start. By default, the current pan of the audio item is used.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">keepChanges</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; keepChanges  Keep pan changes 
+   </td>
+</tr>
+</table>
+</div>
+<a name="pause()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pause</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function pause(_fadeOut:Boolean = false):void</code><p>
+   
+   Pauses sound(s).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeOut</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeOut  Fades volume out, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="remove()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">remove</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function remove(index:int):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code></td>
+</tr>
+</table>
+</div>
+<a name="removeChild()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeChild</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeChild(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Removes the specified child audio item from the child list of this group. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash;  The audio item to remove.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                         The audio item that you pass in the child parameter. 
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="resume()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resume</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function resume(_fadeIn:Boolean = false):void</code><p>
+   
+   Resumes sound(s) from where it was paused.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeIn</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeIn  Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="right()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">right</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function right(_fade:Boolean = false):void</code><p>
+   
+   Sets pan to 1 (full pan right).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fade  Fade pan to right, using time set by <code>AudioAPI.DURATION_PAN_FADE</code>.  
+   </td>
+</tr>
+</table>
+</div>
+<a name="setAudio()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setAudio</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function setAudio(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code> (default = <code>-1</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="setPan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setPan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setPan(value:Number):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:Number</code></td>
+</tr>
+</table>
+</div>
+<a name="setVolume()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setVolume</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setVolume(value:Number):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:Number</code></td>
+</tr>
+</table>
+</div>
+<a name="solo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">solo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function solo():void</code><p>
+   
+   [TBD, DO NOT USE] Mutes all other sounds.
+   </p></div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function start(_fadeIn:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void</code><p>
+   Load and plays group's children.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeIn</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeIn Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_startTime</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;  The initial position at which playback should start for each child. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_useStartTimeFromCookie</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; N/A
+   </td>
+</tr>
+</table>
+</div>
+<a name="stop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">stop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function stop(_fadeOut:Boolean = false):void</code><p>
+   
+   Stops the sound(s) and cleans Timers and Sound Channels.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeOut</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeOut  Fades volume out, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="toggleMute()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toggleMute</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toggleMute(_fade:Boolean = false):void</code><p>
+   
+   Mutes/unmutes sound(s) depending on sound(s) current state.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; Fades volume in or out, using time set by <code>AudioAPI.DURATION_MUTE_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="togglePause()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">togglePause</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function togglePause(_fade:Boolean = false):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="unmute()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unmute</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unmute(_fadeIn:Boolean = false):void</code><p>
+   
+   Restores item's initial volume.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeIn</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; Fades volume in, using time set by <code>AudioAPI.DURATION_MUTE_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="unsolo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unsolo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unsolo():void</code><p>
+   
+   [TBD, DO NOT USE] Unmutes all other sounds.
+   </p></div>
+<a name="volumeTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">volumeTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function volumeTo(time:Number, endVolume:Number, startVolume:Number, keepChanges:Boolean = true, callback:Function = null):void</code><p>
+   
+   Fades audio item's volume progressively.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">time</span>:Number</code> &mdash;   Transition time. Mixer.DURATION_DEFAULT by default
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">endVolume</span>:Number</code> &mdash;    The target volume . By default, the current volume of the audio item is used.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">startVolume</span>:Number</code> &mdash;   The volume at which the fade should start. By default, the current volume of the audio item is used.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">keepChanges</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; keepChanges  Keep volume changes eg when using unmute() method
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash;  callback  A function to call when transition has ended
+   </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
