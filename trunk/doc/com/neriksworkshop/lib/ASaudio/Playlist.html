@@ -1,0 +1,1282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="Playlist,com.neriksworkshop.lib.ASaudio.Playlist,currentTrack,currentTrackIndex,duration,fadeAtEnd,id3,loop,peak,peakLeft,peakRight,position,positionMs,volumeUnits,add,addChild,addChildAt,cookieRetrieve,cookieWrite,getTrackAt,next,previous,removeChild,removeChildAt,resume,setAudio,start,startAt" name="keywords">
+<title>com.neriksworkshop.lib.ASaudio.Playlist</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Playlist - API Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ASaudio</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?com/neriksworkshop/lib/ASaudio/Playlist.html&amp;com/neriksworkshop/lib/ASaudio/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Playlist</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Playlist"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.neriksworkshop.lib.ASaudio</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Playlist</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Playlist <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> <a href="Group.html">Group</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Implements</td><td><a href="core/IAudioItem.html">IAudioItem</a></td>
+</tr>
+</table>
+<p></p>
+ Playlists are linear Groups. They behave the same way, except they only accept Track objects as children, they only play a Track at once (except for crossfades), and they automatically play children successively.
+ 
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#children">children</a> : Array<div class="summaryTableDescription">
+   Returns an array that contains all of the group/list's children.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentTrack">currentTrack</a> : <a href="../ASaudio/Track.html">Track</a>
+<div class="summaryTableDescription">[read-only]</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentTrackIndex">currentTrackIndex</a> : int<div class="summaryTableDescription">[read-only]
+   The current track position.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#duration">duration</a> : Number<div class="summaryTableDescription">[read-only]
+   <p>The length of the current sound in milliseconds.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fadeAtEnd">fadeAtEnd</a> : Boolean<div class="summaryTableDescription">
+   If set to true, automatically fades out volume at the end of the currently playing track and fades in the next track of the playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#id3">id3</a> : ID3Info<div class="summaryTableDescription">[read-only]
+   Provides access to the metadata of the currently playing track.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#loop">loop</a> : Boolean<div class="summaryTableDescription">
+   Determines whether the playlist should repeat or not (default is true).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#name">name</a> : String<div class="summaryTableDescription">
+   
+   A name to identify the track or the group.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#numChildren">numChildren</a> : int<div class="summaryTableDescription">
+   Returns the number of children of this group/list.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#pan">pan</a> : Number<div class="summaryTableDescription">
+   
+   The left-to-right panning of the audio item, ranging from -1 (full pan 
+   left) to 1 (full pan right).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#panMultiplier">panMultiplier</a> : Number<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peak">peak</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current average amplitude (volume) of the right and left channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peakLeft">peakLeft</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current amplitude (volume) of the left channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#peakRight">peakRight</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   The current amplitude (volume) of the right channel, from 0 (silent) to 1 (full amplitude).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#position">position</a> : Number<div class="summaryTableDescription">[read-only]
+   The current position of the playhead within the currently playing
+   track, from 0 (begining of the track) to 1 (end of the track).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#positionMs">positionMs</a> : Number<div class="summaryTableDescription">[read-only]
+   The current position of the playhead within the currently playing
+   track, in milliseconds.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#uid">uid</a> : uint<div class="summaryTableDescription">
+   
+   An unique and auto generated identifier for the audio element.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#volume">volume</a> : Number<div class="summaryTableDescription">
+   
+   This item's own volume, ranging from 0 (silent) to 1 (full 
+   volume).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#volumeMultiplier">volumeMultiplier</a> : Number<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#volumeUnits">volumeUnits</a> : Number<div class="summaryTableDescription">[read-only]
+   
+   [TBD, DO NOT USE] return an approximation of the amplitude in Volume Units (VU) from 0 to 1.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedProperty" id="hideInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Properties</a>
+</div>
+<div class="showInheritedProtectedProperty" id="showInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Properties</a>
+</div>
+</div>
+<table id="summaryTableProtectedProperty" class="summaryTable hideInheritedProtectedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_children">_children</a> : Array<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_facadePan">_facadePan</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_facadeVolume">_facadeVolume</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_fadeAtEnd">_fadeAtEnd</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_loop">_loop</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_muted">_muted</a> : Boolean = false<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_name">_name</a> : String<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_numChildren">_numChildren</a> : int<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_panMultiplier">_panMultiplier</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_paused">_paused</a> : Boolean = true<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_refFacadePan">_refFacadePan</a> : Number = 0<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_refFacadeVolume">_refFacadeVolume</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_uid">_uid</a> : int<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Group.html#_volumeMultiplier">_volumeMultiplier</a> : Number = 1<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Playlist()">Playlist</a>(_items:* = null, _name:String = null)</div>
+<div class="summaryTableDescription">
+   Creates a new Playlist object.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addChild()">addChild</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child track instance to this playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addChildAt()">addChildAt</a>(item:<a href="Track.html">Track</a>, index:int):<a href="../ASaudio/Track.html">Track</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child track instance to this playlist, at the specified position.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#addFrom()">addFrom</a>(_items:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#addTracksFromM3U()">addTracksFromM3U</a>(data:String):void</div>
+<div class="summaryTableDescription">
+   Load sounds, creates and add AudioTracks to the group, using an M3U formatted playlist.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#addTracksFromUrls()">addTracksFromUrls</a>(urls:Array):void</div>
+<div class="summaryTableDescription">
+   Loads sounds urls provided, creates and adds corresponding AudioTracks to the group/list's
+   child list.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#addTracksFromXSPF()">addTracksFromXSPF</a>(data:XML):void</div>
+<div class="summaryTableDescription">
+   Load sounds, creates and add AudioTracks to the group, using an XSPF formatted playlist.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#center()">center</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to 0 (balanced center between right and left).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#contains()">contains</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Determines whether the specified audio item is a child of this group/list.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cookieRetrieve()">cookieRetrieve</a>(cookieId:String):void</div>
+<div class="summaryTableDescription">
+   
+   Retrieves a flash cookie saved by <code>cookieWrite</code> and applies its parameters to the current audio item.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cookieWrite()">cookieWrite</a>(cookieId:String):Boolean</div>
+<div class="summaryTableDescription">
+   
+   Writes audio item parameters to a flash cookie (SharedObject).</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#crossfade()">crossfade</a>(targetAudio:<a href="core/IAudioItem.html">IAudioItem</a>, time:Number):void</div>
+<div class="summaryTableDescription">
+   
+   Does a crossfade between this audio item and the target one.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#getChildById()">getChildById</a>(_uid:int):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child audio item that exists with the specified auto-generated unique identifier.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#getChildByName()">getChildByName</a>(_name:String):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child audio item that exists with the specified name.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#getM3U()">getM3U</a>():String</div>
+<div class="summaryTableDescription">
+   Generates an M3U playlist from child audio items.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getTrackAt()">getTrackAt</a>(index:int):<a href="../ASaudio/Track.html">Track</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child track that exists at the specified position.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#getXSPF()">getXSPF</a>():XML</div>
+<div class="summaryTableDescription">
+   Generates an XSPF playlist from child audio items.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#left()">left</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to -1 (full pan left).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#loadM3U()">loadM3U</a>(url:String):void</div>
+<div class="summaryTableDescription">
+   Load an M3U formatted playlist, and calls the <code>addTracksFromM3U</code> method when loaded.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#loadXSPF()">loadXSPF</a>(url:String):void</div>
+<div class="summaryTableDescription">
+   Load an XSPF formatted playlist, and calls the <code>addTracksFromXSPF</code> method when loaded.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#mute()">mute</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Mutes item's sound without stopping playback.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#next()">next</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Go to the next track of the playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#panTo()">panTo</a>(time:Number, endPan:Number, startPan:Number, keepChanges:Boolean = true):void</div>
+<div class="summaryTableDescription">
+   
+   Fades audio item's pan progressively.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#pause()">pause</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Pauses sound(s).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#previous()">previous</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Go to the previous track of the playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeChild()">removeChild</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a>
+</div>
+<div class="summaryTableDescription">
+   Removes the specified child track from the child list of this playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeChildAt()">removeChildAt</a>(index:int):<a href="../ASaudio/Track.html">Track</a>
+</div>
+<div class="summaryTableDescription">
+   Removes a child track from the specified position in the child list of this playlist.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#resume()">resume</a>(_fadeIn:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Resumes sound(s) from where it was paused.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#right()">right</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Sets pan to 1 (full pan right).</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#setPan()">setPan</a>(value:Number):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#setVolume()">setVolume</a>(value:Number):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#solo()">solo</a>():void</div>
+<div class="summaryTableDescription">
+   
+   [TBD, DO NOT USE] Mutes all other sounds.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>(_fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Starts playback of the playlist, beginning from the first track.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#startAt()">startAt</a>(_index:int = 0, _fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false, _useTrackIndexFromCookie:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Starts playback of the playlist, beginning from the track specified in the <code>_index</code> parameter.</div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#stop()">stop</a>(_fadeOut:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Stops the sound(s) and cleans Timers and Sound Channels.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#toggleMute()">toggleMute</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Mutes/unmutes sound(s) depending on sound(s) current state.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#togglePause()">togglePause</a>(_fade:Boolean = false):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#unmute()">unmute</a>(_fadeIn:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Restores item's initial volume.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#unsolo()">unsolo</a>():void</div>
+<div class="summaryTableDescription">
+   
+   [TBD, DO NOT USE] Unmutes all other sounds.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#volumeTo()">volumeTo</a>(time:Number, endVolume:Number, startVolume:Number, keepChanges:Boolean = true, callback:Function = null):void</div>
+<div class="summaryTableDescription">
+   
+   Fades audio item's volume progressively.</div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#add()">add</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Group.html#remove()">remove</a>(index:int):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Group.html">Group</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setAudio()">setAudio</a>(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Playlist</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="currentTrack"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentTrack</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentTrack:<a href="../ASaudio/Track.html">Track</a></code>&nbsp;&nbsp;[read-only]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentTrack():<a href="../ASaudio/Track.html">Track</a></code>
+<br>
+</div>
+<a name="currentTrackIndex"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentTrackIndex</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentTrackIndex:int</code>&nbsp;&nbsp;[read-only]<p>
+   The current track position. 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentTrackIndex():int</code>
+<br>
+</div>
+<a name="duration"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">duration</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>duration:Number</code>&nbsp;&nbsp;[read-only]<p>
+   </p><p>The length of the current sound in milliseconds.  </p>
+   <p>When the sound hasn't finsish loading, Track.length will return an
+   estimated total length of the sound, based on the amount of data loaded
+   (whereas Sound.length gives a partial value)</p>
+   <p>The length value is therefore completely accurate only when the COMPLETE event has been fired.</p>
+      <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get duration():Number</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.media.Sound.length()</div>
+</div>
+<a name="fadeAtEnd"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fadeAtEnd</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fadeAtEnd:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   If set to true, automatically fades out volume at the end of the currently playing track and fades in the next track of the playlist. 
+   (the crossfade time is defined by <code>AudioParams.DURATION_TRANSITIONS</code>,
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fadeAtEnd():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fadeAtEnd(value:Boolean):void</code>
+<br>
+</div>
+<a name="id3"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">id3</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>id3:ID3Info</code>&nbsp;&nbsp;[read-only]<p>
+   Provides access to the metadata of the currently playing track. 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get id3():ID3Info</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.media.Sound.id3()</div>
+</div>
+<a name="loop"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loop</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>loop:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   Determines whether the playlist should repeat or not (default is true). <code>Playlist.loop</code> behaves differently from
+   <code>Group.loop</group>, because when set to true, the whole playlist will repeat (each track is played, and when the 
+   last track has been played, the first track starts). If you want to set the loop property for each track inside
+   the playlist, use the <code>Track.loop</code> property.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get loop():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set loop(value:Boolean):void</code>
+<br>
+</div>
+<a name="peak"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peak</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peak:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current average amplitude (volume) of the right and left channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peak():Number</code>
+<br>
+</div>
+<a name="peakLeft"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peakLeft</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peakLeft:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current amplitude (volume) of the left channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peakLeft():Number</code>
+<br>
+</div>
+<a name="peakRight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">peakRight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>peakRight:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   The current amplitude (volume) of the right channel, from 0 (silent) to 1 (full amplitude). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get peakRight():Number</code>
+<br>
+</div>
+<a name="position"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">position</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>position:Number</code>&nbsp;&nbsp;[read-only]<p>
+   The current position of the playhead within the currently playing
+   track, from 0 (begining of the track) to 1 (end of the track). 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get position():Number</code>
+<br>
+</div>
+<a name="positionMs"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">positionMs</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>positionMs:Number</code>&nbsp;&nbsp;[read-only]<p>
+   The current position of the playhead within the currently playing
+   track, in milliseconds.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get positionMs():Number</code>
+<br>
+</div>
+<a name="volumeUnits"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">volumeUnits</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>volumeUnits:Number</code>&nbsp;&nbsp;[read-only]<p>
+   
+   [TBD, DO NOT USE] return an approximation of the amplitude in Volume Units (VU) from 0 to 1. Whereas <code>peak()</peak> gives
+   instantaneous amplitude, VU <i>is intentionally a "slow" measurement, averaging out peaks and troughs of short duration to reflect 
+   the perceived loudness of the material</i> <a href="http://en.wikipedia.org/wiki/Volume_unit">as explained on Wikipedia</a>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get volumeUnits():Number</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Playlist()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Playlist</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Playlist(_items:* = null, _name:String = null)</code><p>
+   Creates a new Playlist object.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_items</span>:*</code> (default = <code>null</code>)<code></code> &mdash; an object containing children you want to add to the group :
+      <ul>
+       <li>If you provide a <strong>single Track, Group or Playlist object</strong>, 
+        this object is added as the single child of the group. Use
+        <code>addChild</code> to add other children the same way later.</li>
+       <li>If you provide an <strong>Array containing Track, Group or Playlist 
+        objects</strong>, these objects are added to the group. Use
+        <code>addChild</code> to add each other child individually later.</li>
+       <li>If you provide a <strong>string containing the url of a playlist file</strong>,
+        the playlist is loaded
+        and children are generated from this playlist. The playlist must have an 
+        xspf or xml extension for the XSPF format, or a m3u extension for the
+        M3U format. Use <code>loadXSPF</code> and <code>loadM3U</code> to add tracks
+        the same way later.</li>
+       <li>If you provide an <code>XML object</code>, the latter is interpreted as raw 
+        XSPF data, and children are generated from the playlist's items. Use 
+        <code>addTracksFromXSPF</code> to add tracks the same way later.</li>
+       <li>If you provide an <strong>Array containing strings</strong>, each string is
+        interpreted as a track url, and children are generated from these urls. Use 
+        <code>addTracksFromUrls</code> to add tracks the same way later.</li>
+      </ul>
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_name</span>:String</code> (default = <code>null</code>)<code></code> &mdash; provide a name if you want to use the Group's method getItemByName(). If you don't provide a name,
+   the name will be created from the auto generated uid.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">Group..addChild<br>Group..loadXSPF<br>Group..loadM3U<br>Group..addTracksFromXSPF<br>Group..addTracksFromM3U<br>Group..addTracksFromUrls</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="add()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">add</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function add(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code> (default = <code>-1</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="addChild()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addChild</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function addChild(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Adds a child track instance to this playlist.
+   The track is added to the end of the playlist. To add a
+   track to a specific index position, use the addChildAt() method.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash;  The track to add as a child of this playlist.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                        The track that you pass in the track parameter. 
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="addChildAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addChildAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addChildAt(item:<a href="Track.html">Track</a>, index:int):<a href="../ASaudio/Track.html">Track</a></code><p>
+   Adds a child track instance to this playlist, at the specified position.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="Track.html">Track</a></code> &mdash;  The track to add as a child of this playlist.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../ASaudio/Track.html">Track</a></code> &mdash; 
+                        The track that you pass in the track parameter. 
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="cookieRetrieve()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cookieRetrieve</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function cookieRetrieve(cookieId:String):void</code><p>
+   
+   Retrieves a flash cookie saved by <code>cookieWrite</code> and applies its parameters to the current audio item. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cookieId</span>:String</code> &mdash;  the id of the previously saved cookie
+   </td>
+</tr>
+</table>
+</div>
+<a name="cookieWrite()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cookieWrite</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function cookieWrite(cookieId:String):Boolean</code><p>
+   
+   Writes audio item parameters to a flash cookie (SharedObject). This can be useful when using a music player accross different pages.
+   Parameters saved : 
+   <ul>
+   <li><code>volume</code></li>
+   <li><code>pan</code></li>
+   <li><code>position</code> / <code>positionMs</code> (only for Tracks and Playlists). You must then use the <code>start()</code> with <code>
+    _useStartTimeFromCookie</code> set to true.</li>
+   <li><code>currentTrackIndex</code> (only for Playlists)</li>
+   </ul>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cookieId</span>:String</code> &mdash; you must provide an id to retrieve the cookie later, using the <code>cookieGet</code> method.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; a boolean value indicating if the creation of the cookie has been succesful or not.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getTrackAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getTrackAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getTrackAt(index:int):<a href="../ASaudio/Track.html">Track</a></code><p>
+   Returns the child track that exists at the specified position. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../ASaudio/Track.html">Track</a></code> &mdash; 
+                        The track at the specified position
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="next()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">next</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function next(_fade:Boolean = false):void</code><p>
+   Go to the next track of the playlist. If the current track is the last of the playlist,
+   the method goes to the first track of the playlist.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, does a crossfade between the current track and the next one. The fade length is set by <code>AudioParams.DURATION_TRANSITIONS</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="previous()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">previous</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function previous(_fade:Boolean = false):void</code><p>
+   Go to the previous track of the playlist. If the current track is the first of the playlist,
+   the method goes to the last track of the playlist.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, does a crossfade between the current track and the previous one. The fade length is set by <code>AudioParams.DURATION_TRANSITIONS</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="removeChild()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeChild</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function removeChild(item:<a href="core/IAudioItem.html">IAudioItem</a>):<a href="core/IAudioItem.html">IAudioItem</a></code><p>
+   Removes the specified child track from the child list of this playlist. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code> &mdash;  The track to remove.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="core/IAudioItem.html">IAudioItem</a></code> &mdash; 
+                         The track that you pass in the item parameter. 
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="removeChildAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeChildAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeChildAt(index:int):<a href="../ASaudio/Track.html">Track</a></code><p>
+   Removes a child track from the specified position in the child list of this playlist. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../ASaudio/Track.html">Track</a></code> &mdash; 
+                        The track at the specified position
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="resume()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resume</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function resume(_fadeIn:Boolean = false):void</code><p>
+   
+   Resumes sound(s) from where it was paused.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fadeIn</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeIn  Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setAudio()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setAudio</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function setAudio(item:<a href="core/IAudioItem.html">IAudioItem</a>, index:int = -1):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="core/IAudioItem.html">IAudioItem</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code> (default = <code>-1</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function start(_fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void</code><p>
+   Starts playback of the playlist, beginning from the first track.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; _fadeIn Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_startTime</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;  The initial position at which playback should start. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_useStartTimeFromCookie</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, the playlist will start at a position saved in a cookie, and previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_startTime</code> parameter is then ignored).
+  </td>
+</tr>
+</table>
+</div>
+<a name="startAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function startAt(_index:int = 0, _fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false, _useTrackIndexFromCookie:Boolean = false):void</code><p>
+   Starts playback of the playlist, beginning from the track specified in the <code>_index</code> parameter.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">_index</span>:int</code> (default = <code>0</code>)<code></code> &mdash; The track index at which the playlist playback should start.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_fade</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, fades in next track, and fades out the currently playing track (if applicable). The fade length is set by <code>AudioParams.DURATION_TRANSITIONS</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_startTime</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; The initial position at which playback should start for the specified track, in milliseconds if _startTime > 1, or if _startTime <= 1, from 0 (begining of the track) to 1 (end of the track). 
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_useStartTimeFromCookie</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, the playlist will start at a position saved in a cookie, previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_startTime</code> parameters is then ignored).
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">_useTrackIndexFromCookie</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If set to true, the playlist will start from the track specified by a cookie. This cookie must have been previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_index</code> parameter is then ignored).
+   </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
