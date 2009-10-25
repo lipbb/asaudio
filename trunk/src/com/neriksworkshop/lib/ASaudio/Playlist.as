@@ -1,6 +1,7 @@
 ﻿package com.neriksworkshop.lib.ASaudio 
 {
 	import com.neriksworkshop.lib.ASaudio.core.*;
+	import com.neriksworkshop.lib.ASaudio.events.*;
 	import flash.events.Event;
 	import flash.media.ID3Info;
 
@@ -13,11 +14,14 @@
 	{
 		
 		private var _currentTrack:Track;
-		private var _currentTrackIndex:int = -1;
+		private var _currentTrackIndex:int = 0;
 		
 		private var _startTimeFromCookie:Number;
 		private var _trackIndexFromCookie:Number;
-
+		
+		private var _refPosition:Number; //only used to give proper position value when paused
+		private var _refPositionMs:Number; //only used to give proper positionMs value when paused
+		
 		private static const PREV:int = -2;
 		private static const NEXT:int = -1;
 		
@@ -58,6 +62,7 @@
 		public function Playlist(_items:* = null, _name:String = null) 
 		{
 			_loop = true;
+			fadeAtEnd = true;
 			super(_items, _name);
 		}
 		
@@ -73,6 +78,7 @@
 		 */	
 		public override function addChild(item:IAudioItem):IAudioItem 
 		{
+			//trace("Playlist.addChild");
 			return super.addChild(item);
 		}
 		
@@ -83,6 +89,7 @@
 		 */
 		public override function removeChild(item:IAudioItem):IAudioItem
 		{
+			//trace("Playlist.removeChild")
 			return super.removeChild(item);
 		}
 		
@@ -94,6 +101,7 @@
 		 */
 		public function addChildAt(item:Track, index:int):Track
 		{
+			//trace("Playlist.addChildAt");
 			add(item, index);
 			return item;
 		}
@@ -161,7 +169,7 @@
 		 */
 		public function get position():Number 
 		{
-			return _currentTrack.position;
+			return (_currentTrack) ? _currentTrack.position : _refPosition;
 		}		
 		
 		/**
@@ -170,7 +178,7 @@
 		 */
 		public function get positionMs():Number 
 		{
-			return _currentTrack.positionMs;
+			return (_currentTrack) ? _currentTrack.positionMs : _refPositionMs;
 		}		
 
 				
@@ -211,22 +219,31 @@
 		/**
 		 * @inheritDoc
 		 */			
-		public override function cookieWrite(cookieId:String):Boolean
+		public override function saveState(cookieId:String):Boolean
 		{
-			var p:Object = { volume:volume, pan:pan, positionMs:positionMs, currentTrackIndex:currentTrackIndex };
+			var p:Object = { volume:volume, pan:pan, positionMs:positionMs, currentTrackIndex:currentTrackIndex, paused:_paused };
 			return Core.cookieWrite(cookieId, p);
 		}
 
 		/**
 		 * @inheritDoc
 		 */		
-		public override function cookieRetrieve(cookieId:String):void
+		public override function loadState(cookieId:String, _fadeIn:Boolean = false):void
 		{
 			var soData:Object = Core.cookieRetrieve(cookieId);
 			volume = (soData.volume) ? soData.volume : _facadeVolume;
 			pan = (soData.pan) ? soData.pan : _facadePan;
+			
 			_startTimeFromCookie = (soData.positionMs) ? soData.positionMs : 0;
-			_trackIndexFromCookie = (soData.currentTrackIndex) ? soData.currentTrackIndex : currentTrackIndex;
+			_trackIndexFromCookie = (soData.currentTrackIndex) ? soData.currentTrackIndex : 0;
+			
+			if (soData.paused == true || soData.paused == undefined) 
+			{
+				_paused = true;
+				_currentTrackIndex = _trackIndexFromCookie;
+			}
+			else startAt(_trackIndexFromCookie, _fadeIn, _startTimeFromCookie);
+			
 		}
 			
 
@@ -251,26 +268,25 @@
 		
 		
 //----------------------- Navigation ---------------------------------------------------------------------------------------------------
+
+
 		/**
 		 * Starts playback of the playlist, beginning from the first track.
 		 * @param 	_fadeIn Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
 		 * @param	_startTime  The initial position at which playback should start. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
-		 * @param	_useStartTimeFromCookie If set to true, the playlist will start at a position saved in a cookie, and previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_startTime</code> parameter is then ignored).
 		*/
-		public override function start(_fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void
+		public override function start(_fade:Boolean = false, _startTime:Number = 0):void
 		{
-			startAt(0, _fade, _startTime, _useStartTimeFromCookie);
+			startAt(_currentTrackIndex, _fade, _startTime);
 		}
 
 		/**
 		 * Starts playback of the playlist, beginning from the track specified in the <code>_index</code> parameter.
 		 * @param	_index The track index at which the playlist playback should start.
 		 * @param	_fade If set to true, fades in next track, and fades out the currently playing track (if applicable). The fade length is set by <code>AudioParams.DURATION_TRANSITIONS</code>.
-		 * @param	_startTime The initial position at which playback should start for the specified track, in milliseconds if _startTime > 1, or if _startTime <= 1, from 0 (begining of the track) to 1 (end of the track). 
-		 * @param	_useStartTimeFromCookie If set to true, the playlist will start at a position saved in a cookie, previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_startTime</code> parameters is then ignored).
-		 * @param	_useTrackIndexFromCookie If set to true, the playlist will start from the track specified by a cookie. This cookie must have been previously retrieved on this playlist using <code>cookieRetrieve()</code> (<code>_index</code> parameter is then ignored).
+		 * @param	_startTime The initial position at which playback should start for the specified track, in milliseconds if _startTime > 1, or if _startTime <= 1, from 0 (begining of the track) to 1 (end of the track).
 		 */
-		public function startAt(_index:int = 0, _fade:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false, _useTrackIndexFromCookie:Boolean = false):void
+		public function startAt(_index:int = 0, _fade:Boolean = false, _startTime:Number = 0):void
 		{
 			setVolume(_refFacadeVolume);
 			setPan(_refFacadePan);
@@ -286,14 +302,39 @@
 				throw new Error("Playlist is empty");
 			}
 			
-			var t:Number = (_useStartTimeFromCookie) ? _startTimeFromCookie : _startTime;
-			var i:int = (_useTrackIndexFromCookie) ? _trackIndexFromCookie : _index;
+			//var t:Number = (_useStartTimeFromCookie) ? _startTimeFromCookie : _startTime;
+			//var i:int = (_useTrackIndexFromCookie) ? _trackIndexFromCookie : _index;
 	
-			goto(i, _fade, t);
+			goto(_index, _fade, _startTime);
 			
 
 		}
 		
+		/**
+		 * @inheritDoc
+		 */				
+		override public function stop(_fadeOut:Boolean = false):void 
+		{
+			if (_currentTrack)
+			{
+				_refPosition = _currentTrack.position;
+				_refPositionMs = _currentTrack.positionMs;
+			}			
+			super.stop(_fadeOut);
+		}
+		
+		/**
+		 * @inheritDoc
+		 */		
+		override public function pause(_fadeOut:Boolean = false):void 
+		{
+			if (_currentTrack)
+			{
+				_refPosition = _currentTrack.position;
+				_refPositionMs = _currentTrack.positionMs;
+			}
+			super.pause(_fadeOut);
+		}
 
 		/**
 		 * @inheritDoc
@@ -303,10 +344,20 @@
 			if (!_paused) return;
 			_paused = false;
 			
-			_currentTrack.resume(false);
+			if (!isNaN(_startTimeFromCookie) && !isNaN(_trackIndexFromCookie))
+			{
+				startAt(_trackIndexFromCookie, false, _startTimeFromCookie);
+				_startTimeFromCookie = _trackIndexFromCookie = NaN;
+			}
+			else
+			{
+				_currentTrack.resume(false);
 			
-			if (_fadeIn) volumeTo(Mixer.DURATION_PLAYBACK_FADE, _refFacadeVolume, 0, false);
-			else setVolume(_refFacadeVolume);				
+				if (_fadeIn) volumeTo(Mixer.DURATION_PLAYBACK_FADE, _refFacadeVolume, 0, false);
+				else setVolume(_refFacadeVolume);
+			}
+			
+				
 		}
 		
 		//public function togglePause(_fade:Boolean = false):void
@@ -414,31 +465,34 @@
 //-------------------------------------PRIVATE METHODS--------------------------------		
 		
 		protected override function add(item:IAudioItem, index:int = -1):void
-		{
-			
-			
-			if (!(item is Track)) throw new Error("The element is not a Track object");
-			
+		{	
+			//trace("(Playlist.add)");
+			if (!(item is Track)) throw new Error("The element is not a Track object");			
+			item.addEventListener(AudioEvent.PLAYING, trackPlayingHandler);			
 			super.add(item, index);
-			
-			//trace("Playlist.add");
-			//...
 			
 		}
 		
 		protected override function setAudio(item:IAudioItem, index:int = -1):void
 		{
 			super.setAudio(item, index);
-			
-			//trace("Playlist.setAudio");
+
 			item.addEventListener(Event.SOUND_COMPLETE, trackComplete);
-			item.addEventListener(AudioEvents.FADE_AT_END_STARTED, trackFadeout);
+			item.addEventListener(AudioEvent.FADE_AT_END_STARTED, trackFadeout);
 		}
 		
+		protected override function remove(index:int):void
+		{
+			//trace("(Playlist.remove)");
+			_children[index].removeEventListener(AudioEvent.PLAYING, trackPlayingHandler);
+			super.remove(index);
+		}		
 		
+
 		private function goto(_nextTrackIndex:int, _fade:Boolean = false, _startTime:Number = 0, _fadeCurrent:Boolean = true):void
 		{			
 			_paused = false;
+			trace(paused)
 			
 			var n:int = _nextTrackIndex;
 			
@@ -489,7 +543,7 @@
 			if (!_fadeAtEnd && !_currentTrack.loop)
 			{
 				if (isLast(_currentTrackIndex) && !_loop) return;
-				dispatchEvent(new Event(AudioEvents.NEXT_TRACK));
+				dispatchEvent(new AudioEvent(AudioEvent.NEXT_TRACK));
 				next(false);			
 			}
 		}
@@ -499,12 +553,16 @@
 			if (_fadeAtEnd && !_currentTrack.loop) 
 			{
 				if (isLast(_currentTrackIndex) && !_loop) return;
-				dispatchEvent(new Event(AudioEvents.NEXT_TRACK));
+				dispatchEvent(new AudioEvent(AudioEvent.NEXT_TRACK));
 				goto(NEXT, true, 0, false);
 			}
 		}		
-		
-	
+
+		private function trackPlayingHandler(event:AudioEvent):void 
+		{
+			if ((event.target as Track).uid == currentTrack.uid) dispatchEvent(new AudioEvent(AudioEvent.PLAYING));
+		}
+			
 		private function isLast(index:int):Boolean
 		{
 			return index == _numChildren - 1;

@@ -47,8 +47,8 @@
 			
 			addEventListener(Event.ENTER_FRAME, run);
 		
-			t = new Track("../data/test.mp3");
-			t.addEventListener(AudioEvents.PLAYING, handler);
+			//t = new Track("../data/test.mp3");
+			//t.addEventListener(AudioEvents.PLAYING, handler);
 			//t.fadeOutOnEnd = true;
 			//add
 
@@ -58,8 +58,8 @@
 			
 			//
 
-			//p = new Playlist([new Track("../data/test.mp3"),  new Track("../data/arpeg.mp3")]);
-			//p.fadeAtEnd = true;
+			p = new Playlist([new Track("../data/arpeg.mp3"),  new Track("../data/bass.mp3")]);
+			p.fadeAtEnd = true;
 			
 			//g = new Group([new Track("../data/med.mp3"), gt, new Track("../data/mu.mp3")]);
 			//g.removeChild(g.getChildByName("arpeg"));
@@ -173,13 +173,13 @@
 		private function test(event:KeyboardEvent):void 
 		{
 			trace(event.charCode)
-			var e:IAudioItem = t;
+			var e:IAudioItem = p;
 			
 		
 			switch (String.fromCharCode(event.charCode))
 			{
 				case " " : //SPACE
-					e.start(false, .98);break
+					e.start(false);break
 				case "u" : //UP
 					e.volume += .1; break;
 				case "d": //DOWN

@@ -1,5 +1,6 @@
 ﻿package com.neriksworkshop.lib.ASaudio 
 {
+	import com.neriksworkshop.lib.ASaudio.events.AudioEvent;
 	import flash.events.EventDispatcher;
 	import flash.events.Event;
 	import flash.events.HTTPStatusEvent;
@@ -48,7 +49,7 @@
 		
 		/**
 		 * Creates a new Group object.
-		 * @param _children an object containing children you want to add to the group :
+		 * @param _items an object containing children you want to add to the group :
 		 * 			<ul>
 		 * 				<li>If you provide a <strong>single Track, Group or Playlist object</strong>, 
 		 * 					this object is added as the single child of the group. Use
@@ -144,6 +145,7 @@
 		public function addChild(item:IAudioItem):IAudioItem 
 		{
 			//if (item is Track) trace((item as Track).url);
+			//trace("Group.addChild");
 			add(item);
 			return item;			
 		}
@@ -155,6 +157,7 @@
 		 */
 		public function removeChild(item:IAudioItem):IAudioItem
 		{
+			//trace("Group.removeChild");
 			for (var i:int = 0; i < numChildren; i++)
 			{
 				if (item == _children[i])
@@ -407,7 +410,7 @@
 		/**
 		 * @inheritDoc
 		 */			
-		public function cookieWrite(cookieId:String):Boolean
+		public function saveState(cookieId:String):Boolean
 		{
 			var p:Object = { volume:volume, pan:pan };
 			return Core.cookieWrite(cookieId, p);
@@ -416,7 +419,7 @@
 		/**
 		 * @inheritDoc
 		 */		
-		public function cookieRetrieve(cookieId:String):void
+		public function loadState(cookieId:String, _fadeIn:Boolean = false):void
 		{
 			var soData:Object = Core.cookieRetrieve(cookieId);
 			volume = (soData.volume) ? soData.volume : _facadeVolume;
@@ -438,7 +441,7 @@
 		public function set fadeAtEnd(value:Boolean):void
 		{
 			_fadeAtEnd = value;
-			for each (var i:IAudioItem in _children) { trace(i);  i.fadeAtEnd = value; };
+			for each (var i:IAudioItem in _children) { i.fadeAtEnd = value; };
 		}
 	
 
@@ -446,12 +449,24 @@
 		
 //----------------------- Navigation ---------------------------------------------------------------------------------------------------
 		/**
-		 * Load and plays group's children.
-		 * @param 	_fadeIn Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
-		 * @param	_startTime  The initial position at which playback should start for each child. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
-		 * @param	_useStartTimeFromCookie N/A
+		 * TBD, do not use
+		 * Plays group's tracks using the startTime value saved in the cookie/shared object. You must first retrieve the data on this group using the <code>cookieRetrieve()</code> method.
+		 * @param	_fadeIn		Fades volume in, using time set by <code>Mixer.DURATION_PLAYBACK_FADE</code>.
 		 */
-		public function start(_fadeIn:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void
+		/*
+		public function startWithCookieData(_fadeIn:Boolean = false):void
+		{
+			throw new Error('method not implemented yet :)');
+		}*/
+
+
+
+		/**
+		 * Plays group's children.
+		 * @param 	_fadeIn Fades volume in, using time set by <code>Mixer.DURATION_PLAYBACK_FADE</code>.
+		 * @param	_startTime  The initial position at which playback should start for each child. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
+		 */
+		public function start(_fadeIn:Boolean = false, _startTime:Number = 0):void
 		{
 			_paused = false;
 			
@@ -462,6 +477,7 @@
 			
 			if (_fadeIn) volumeTo(Mixer.DURATION_PLAYBACK_FADE, _facadeVolume, 0, false);
 		}
+	
 		
 		
 		//TODO loadID3()
@@ -483,10 +499,13 @@
 		public function pause(_fadeOut:Boolean = false):void
 		{
 			if (_paused) return;
-			_paused = true;
+			_paused = true;			
 			
-			if (_fadeOut) volumeTo(Mixer.DURATION_PLAYBACK_FADE, 0, _facadeVolume, false, pause);
-			
+			if (_fadeOut) 
+			{
+				//callback --> pause method (without fade)
+				volumeTo(Mixer.DURATION_PLAYBACK_FADE, 0, _facadeVolume, false, pause);
+			}
 			else 
 			{
 				for each (var i:IAudioItem in _children)  { i.pause(false); }							
@@ -515,6 +534,15 @@
 		{
 			if (_paused) resume(_fade) else pause(_fade);
 		}
+		
+		
+		/**
+		 * Gives track's current playback state.
+		 */			
+		public function get paused():Boolean 
+		{
+			return _paused; 
+		}			
 		
 		/**
 		 * Determines whether the group's children should repeat themselves or not.
@@ -707,9 +735,10 @@
 		public function crossfade(targetAudio:IAudioItem, time:Number = NaN):void
 		{
 			var t:Number = isNaN(time) ? Mixer.DURATION_TRANSITIONS : time;
+			//trace(_facadeVolume)
 			volumeTo(time, 0, _facadeVolume, false, clear);
-			targetAudio.start(false);
-			targetAudio.volumeTo(time, NaN, 0, false);
+			//stop();
+			//targetAudio.volumeTo(time, NaN, 0, false);
 		}
 
 		
@@ -734,7 +763,7 @@
 
 		protected function add(item:IAudioItem, index:int = -1):void
 		{
-			//trace("Group.add");
+			//trace("(Group.add)");
 			(index == -1) ? _children.push(item) : _children.splice(index, 0, item);
 			setAudio(item);
 			_numChildren++;
@@ -753,6 +782,7 @@
 		
 		protected function remove(index:int):void
 		{
+			//trace("Group.remove");			
 			_children.splice(index, 1);
 			_numChildren--;
 		}
@@ -771,14 +801,14 @@
 		private function XSPFCompleteHandler(event:Event):void
 		{
 			addTracksFromXSPF(new XML(event.target.data));
-			dispatchEvent(new Event(AudioEvents.PLAYLIST_LOADED));
+			dispatchEvent(new AudioEvent(AudioEvent.PLAYLIST_LOADED));
 			
 		}
 		
 		private function M3UCompleteHandler(event:Event):void
 		{
 			addTracksFromM3U(event.target.data);
-			dispatchEvent(new Event(AudioEvents.PLAYLIST_LOADED));
+			dispatchEvent(new AudioEvent(AudioEvent.PLAYLIST_LOADED));
 
 		}		
 		
@@ -793,7 +823,7 @@
 			
 			for each (var i:IAudioItem in _children) { i.volumeMultiplier = _realVolume; }				
 			
-			dispatchEvent(new Event(AudioEvents.VOLUME_CHANGE));	
+			dispatchEvent(new AudioEvent(AudioEvent.VOLUME_CHANGE));	
 		}
 		
 		private function applyPan():void
@@ -804,7 +834,7 @@
 			
 			for each (var i:IAudioItem in _children) { i.panMultiplier = _facadePan; }
 			
-			dispatchEvent(new Event(AudioEvents.PAN_CHANGE));
+			dispatchEvent(new AudioEvent(AudioEvent.PAN_CHANGE));
 		}
 		
 		
