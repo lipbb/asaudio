@@ -1,6 +1,7 @@
 ﻿package com.neriksworkshop.lib.ASaudio.core
 {
 	import com.neriksworkshop.lib.ASaudio.*;
+	import com.neriksworkshop.lib.ASaudio.events.*;
 	import flash.events.EventDispatcher;
 	import flash.system.System;
 	import flash.utils.Timer;
@@ -40,15 +41,15 @@
 		private var itemsVolFades:/*Fade*/Array = new Array();
 		private var itemsPanFades:/*Fade*/Array = new Array();
 		
-		private var timer:Timer;
+		private var ticker:Timer;
 		private var before:Number;		
 		
 
 		public function initialize():void  
 		{
-			timer = new Timer(50);
-			timer.addEventListener(TimerEvent.TIMER, run);
-			timer.start();
+			ticker = new Timer(50);
+			ticker.addEventListener(TimerEvent.TIMER, run);
+			ticker.start();
 			
 			before = new Date().getTime();
 		}
@@ -70,14 +71,13 @@
 			var elapsed:Number = now - before;
 			before = now;
 		
-			
 			for each (var item:IAudioItem in items)
 			{
 			
 				if (item is Track)
 				{
 					if (!(item as Track).active) continue;
-					if (!(item as Track).paused) dispatchEvent(new InfoEvent("managerPlaying", item.uid));
+					dispatchEvent(new AudioEvent(AudioEvent.TICK, item.uid));
 				}
 				
 				
@@ -117,13 +117,14 @@
 				
 				
 			}
+
 		}			
 		
 		public function volumeTo(uid:int, t:Number, s:Number, e:Number, k:Boolean, callback:Function):void
 		{
 			if (k) items[uid].volume = s else items[uid].setVolume(s);
 			itemsVolFades[uid] = new Fade(t, s, e, k, callback);
-			
+			trace(s,e)
 		}
 
 		public function panTo(uid:int, t:Number, s:Number, e:Number, k:Boolean):void
@@ -134,7 +135,6 @@
 		
 		public function volumeToDone(uid:int):void
 		{
-
 
 			if (itemsVolFades[uid].callback) itemsVolFades[uid].callback();
 

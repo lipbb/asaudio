@@ -55,25 +55,26 @@
 		
 		
 		/**
-		 * Writes audio item parameters to a flash cookie (SharedObject). This can be useful when using a music player accross different pages.
+		 * Writes audio item parameters to a flash cookie (SharedObject). This can be useful when using a music player accross different html pages for example.
 		 * Parameters saved : 
 		 * <ul>
 		 * <li><code>volume</code></li>
 		 * <li><code>pan</code></li>
-		 * <li><code>position</code> / <code>positionMs</code> (only for Tracks and Playlists). You must then use the <code>start()</code> with <code>
-		 * 	_useStartTimeFromCookie</code> set to true.</li>
+		 * <li><code>position</code> / <code>positionMs</code> (only for Tracks and Playlists). </li>
 		 * <li><code>currentTrackIndex</code> (only for Playlists)</li>
+		 * <li>play/pause state</li>
 		 * </ul>
+		 * Use the <code>loadState()</code> method to get the parameters back
 		 * @param cookieId you must provide an id to retrieve the cookie later, using the <code>cookieGet</code> method.
 		 * @return a boolean value indicating if the creation of the cookie has been succesful or not.
 		 */
-		function cookieWrite(cookieId:String):Boolean
+		function saveState(cookieId:String):Boolean
 		
 		/**
-		 * Retrieves a flash cookie saved by <code>cookieWrite</code> and applies its parameters to the current audio item. 
+		 * Retrieves a flash cookie saved by <code>saveState</code> and applies its parameters to the current audio item. Also starts playback of the audio item if playback state was on playing. Otherwise, use the <code>resume</code> or the <code>togglePause</code> method: the first time it is called after loadState, it retrieves the position in the track and/or the position in the playlist. 
 		 * @param cookieId  the id of the previously saved cookie
 		 */
-		function cookieRetrieve(cookieId:String):void
+		function loadState(cookieId:String, _fadeIn:Boolean = false):void
 		
 		
 //----------------------- Params ---------------------------------------------------------------------------------------------------		 		
@@ -93,7 +94,8 @@
 		
 		
 
-		function start(_fadeIn:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void
+		function start(_fadeIn:Boolean = false, _startTime:Number = 0):void
+		
 		
 		/**
 		 * Stops the sound(s) and cleans Timers and Sound Channels.

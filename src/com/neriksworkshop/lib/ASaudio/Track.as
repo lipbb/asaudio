@@ -1,4 +1,4 @@
-﻿package com.neriksworkshop.lib.ASaudio
+﻿package com.neriksworkshop.lib.ASaudio 
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -15,19 +15,34 @@
 	import flash.utils.Timer;
 	
 	import com.neriksworkshop.lib.ASaudio.core.*;
+	import com.neriksworkshop.lib.ASaudio.events.*;	
+
+	/**
+	 *  Dispatched when the user presses the Button control.
+	 *  If the <code>autoRepeat</code> property is <code>true</code>,
+	 *  this event is dispatched repeatedly as long as the button stays down.
+	 */
+	[Event(name="buttonDown", type="mx.events.FlexEvent")]
+	
+	//dispatchEvent(new Event(AudioEvents.START));
 	
 	/**
-	* The Track is the basic audio item. It gathers functionality from the Sound, SoundChannel and SoundTransform classes, and basically throws same events.
+	 *  Dispatched when playback begins.
+	 */
+	[Event(name="START", type="com.neriksworkshop.lib.ASaudio.events.AudioEvent")]
+
+	
+	
+	/**
+	* The Track is the basic audio item. It gathers functionality from the Sound, SoundChannel and SoundTransform classes, and basically throws all their events.
 	* 
 	* Note that as opposed to standard SoundChannel behavior, Track objects won't hog memory unless they are actually playing. So you don't have to care about the number of Track objects you create.
 	* 
 	* @author http://www.neriksworkshop.com
-	*/
-	
-
-	
+	*/	
 	public class Track extends EventDispatcher implements IAudioItem
 	{
+
 		
 		
 		private var _ss:Array = [null, null];
@@ -43,9 +58,10 @@
 		private var _id3:ID3Info;
 		//private var _length:Number;
 		private var _startTimeFromCookie:Number;
+		//private var _pauseFromCookie:Boolean;
 				
 		//----------- Params --------------
-		private var _fadeAtEnd:Boolean;	
+		private var _fadeAtEnd:Boolean = false;	
 		
 		//----------- Navigation --------------	
 		private var _loop:Boolean;		
@@ -85,7 +101,7 @@
 			this._context = _context;
 			
 			Core.manager.add(this);
-			Core.manager.addEventListener("managerPlaying", managerPlayingHandler);
+			Core.manager.addEventListener(AudioEvent.TICK, tick);
 
 
 		}
@@ -186,7 +202,7 @@
 		 */
 		public function get position():Number 
 		{
-			return (sc) ? sc.position/duration : 0;
+			return (sc) ? sc.position/duration : _refPosition;
 		}		
 		
 		/**
@@ -194,7 +210,7 @@
 		 */
 		public function get positionMs():Number 
 		{
-			return (sc) ? sc.position : 0;
+			return (sc) ? sc.position : _refPosition;
 		}		
 		
 				
@@ -248,21 +264,29 @@
 		/**
 		 * @inheritDoc
 		 */			
-		public function cookieWrite(cookieId:String):Boolean
+		public function saveState(cookieId:String):Boolean
 		{
-			var p:Object = { volume:volume, pan:pan, positionMs:positionMs };
+			var p:Object = { volume:volume, pan:pan, positionMs:positionMs, paused:_paused };
 			return Core.cookieWrite(cookieId, p);
 		}
 
 		/**
 		 * @inheritDoc
 		 */		
-		public function cookieRetrieve(cookieId:String):void
+		public function loadState(cookieId:String, _fadeIn:Boolean = false):void
 		{
 			var soData:Object = Core.cookieRetrieve(cookieId);
 			volume = (soData.volume) ? soData.volume : _facadeVolume;
 			pan = (soData.pan) ? soData.pan : _facadePan;
+			
 			_startTimeFromCookie = (soData.positionMs) ? soData.positionMs : 0;
+			
+			if (soData.paused == false)
+			{
+				start(_fadeIn, _startTimeFromCookie);
+			}
+
+
 		}
 		
 //----------------------- Params ---------------------------------------------------------------------------------------------------		 				
@@ -270,7 +294,7 @@
 		
 		/**
 		 * Fades out volume at the end of the track, using time set by 
-		 * <code>Mixer.DURATION_TRANSITIONS</code>
+		 * <code>Mixer.DURATION_TRANSITIONS</code>. Default is false. When the automatic end fade starts, an AudioEvent.FADE_AT_END_STARTED is dispatched.
 		 */
 		public function get fadeAtEnd():Boolean
 		{
@@ -286,20 +310,29 @@
 		
 		
 //----------------------- Navigation ---------------------------------------------------------------------------------------------------
+		
+		/**
+		 * Plays the track using the startTime value saved in the cookie/shared object. You must first retrieve the data on this track using the <code>cookieRetrieve()</code> method. If the track was paused when writing the cookie, the track won't start, but will start at track's position when calling the reume method.
+		 * @param	_fadeIn		Fades volume in, using time set by <code>Mixer.DURATION_PLAYBACK_FADE</code>.
+		 */
+		/*public function startWithCookieData(_fadeIn:Boolean = false):void
+		{
+			var t:Number = (_startTimeFromCookie) ? _startTimeFromCookie : 0;
+			if (_pauseFromCookie) _refPosition = t else start(_fadeIn, t);
+		}*/
+
 		/**
 		 * Loads and plays the track.
-		 * @param 	_fadeIn Fades volume in, using time set by <code>AudioAPI.DURATION_PLAYBACK_FADE</code>.
+		 * @param 	_fadeIn Fades volume in, using time set by <code>Mixer.DURATION_PLAYBACK_FADE</code>.
 		 * @param	_startTime  The initial position at which playback should start, in milliseconds or in percentage of total duration. If _startTime > 1, value is in milliseconds. If _startTime <= 1, value is from 0 (begining of the track) to 1 (end of the track). 
-		 * @param	_useStartTimeFromCookie If set to true, the track will start at a position saved in a cookie, and previously retrieved on this track using <code>cookieRetrieve()</code> (<code>_startTime</code> parameter is then ignored).
 		 */
-		public function start(_fadeIn:Boolean = false, _startTime:Number = 0, _useStartTimeFromCookie:Boolean = false):void
+		public function start(_fadeIn:Boolean = false, _startTime:Number = 0):void
 		{
 			
-			_paused = false;
+			//trace("t.st")
 			
 			if (_startTime > 0 && _startTime <= 1)
 			{
-				//trace("false start");
 				//we do a "false start" in order to get track duration. start() will be called again in managerPlayingHandler.
 				_delayedStart = { startTime:_startTime, fadeIn:_fadeIn };
 				createSS(0);
@@ -308,9 +341,9 @@
 			}
 			else
 			{
-				//trace("real start");
-				var t:Number = (_useStartTimeFromCookie) ? _startTimeFromCookie : _startTime;
-				createSS(t);
+				_paused = false;
+				
+				createSS(_startTime);
 				
 				setVolume(_refTransform.volume);
 				setPan(_refTransform.pan);
@@ -318,9 +351,10 @@
 				
 				if (_fadeIn) volumeTo(Mixer.DURATION_PLAYBACK_FADE, _facadeVolume, 0, false);
 				
-				dispatchEvent(new Event(AudioEvents.START));
+				dispatchEvent(new AudioEvent(AudioEvent.START));
 			}
 			
+			//trace(">>"+_paused)
 
 		}
 		
@@ -343,7 +377,9 @@
 		 */
 		public function pause(_fadeOut:Boolean = false):void
 		{
+
 			if (_paused || !_active) return;
+
 			_paused = true;
 			_refPosition = position;	//getter
 
@@ -360,6 +396,12 @@
 		{
 			if (!_paused) return;
 	
+			if (!isNaN(_startTimeFromCookie))
+			{
+				start(_fadeIn, _startTimeFromCookie);
+				_startTimeFromCookie = NaN;
+			}
+			
 			start(false, _refPosition);
 			
 			if (_fadeIn) volumeTo(Mixer.DURATION_PLAYBACK_FADE, _refTransform.volume, 0, false);
@@ -628,7 +670,7 @@
 		 */
 		public function notifyEndFadeStart():void
 		{
-			dispatchEvent(new Event(AudioEvents.FADE_AT_END_STARTED));
+			dispatchEvent(new AudioEvent(AudioEvent.FADE_AT_END_STARTED));
 		}
 		
 		/**
@@ -733,7 +775,7 @@
 			
 			//trace("--applyVol:"+_uid,  _facadeVolume, _realVolume)
 			
-			dispatchEvent(new Event(AudioEvents.VOLUME_CHANGE));			
+			dispatchEvent(new AudioEvent(AudioEvent.VOLUME_CHANGE));			
 			
 		}
 		
@@ -766,7 +808,7 @@
 			}			
 			
 			
-			dispatchEvent(new Event(AudioEvents.PAN_CHANGE));			
+			dispatchEvent(new AudioEvent(AudioEvent.PAN_CHANGE));			
 					
 		}		
 		
@@ -777,11 +819,13 @@
 //-------------------------------------EVENT LISTENERS--------------------------------					
 		
 		
-		private function managerPlayingHandler(e:Event):void 
+		private function tick(e:AudioEvent):void 
 		{
-			dispatchEvent(new Event(AudioEvents.PLAYING));
+			if (e.uid == uid && !_paused) dispatchEvent(new AudioEvent(AudioEvent.PLAYING));
 			
-			if (snd.length > 0 && _delayedStart)
+			if (!snd) return;
+			
+			if (snd.length > 0 && _delayedStart != null)
 			{
 				start(_delayedStart.fadeIn, _delayedStart.startTime * duration);
 				_delayedStart = null;
@@ -802,7 +846,7 @@
 		
 		private function sndHandlerIOError(event:IOErrorEvent):void 
 		{
-			dispatchEvent(new IOErrorEvent(IOErrorEvent.IO_ERROR, false, false));;
+			dispatchEvent(new IOErrorEvent(IOErrorEvent.IO_ERROR, false, false));
 		}		
 		
 		private function sndHandlerOpen(event:Event):void 
